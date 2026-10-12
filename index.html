@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OdontoClinic Pro · Sistema de Gestión Odontológica & Portal Clínico</title>
+  <meta name="description" content="Plataforma integral para consultorios dentales con odontograma FDI interactivo, agenda de turnos, historias clínicas y presupuestos en ARS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Topbar con selector de roles y estado demo -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <img src="assets/logo.png" alt="OdontoClinic Logo" class="brand-logo" onerror="this.style.display='none'">
+      <div>
+        <span class="brand-title">OdontoClinic <span class="badge-pro">PRO</span></span>
+        <span class="brand-sub">Sistema Odontológico Integral</span>
+      </div>
+    </div>
+
+    <!-- Navegación por pestañas -->
+    <nav class="nav-tabs" id="navTabs">
+      <button class="tab-btn active" data-tab="portal">🌐 Portal Público</button>
+      <button class="tab-btn" data-tab="agenda">📅 Agenda & Turnos</button>
+      <button class="tab-btn" data-tab="odontograma">🦷 Odontograma FDI</button>
+      <button class="tab-btn" data-tab="pacientes">👥 Pacientes & Fichas</button>
+      <button class="tab-btn" data-tab="presupuestos">💳 Presupuestos & Pagos</button>
+    </nav>
+
+    <!-- Selector de Rol Activo -->
+    <div class="nav-actions">
+      <div class="role-selector-wrap">
+        <label for="roleSelect" class="role-label">Rol:</label>
+        <select id="roleSelect" class="role-select">
+          <option value="admin">Administrador (Total)</option>
+          <option value="odontologo">Dr. Especialista</option>
+          <option value="recepcion">Recepción & Turnos</option>
+        </select>
+      </div>
+      <button id="btnResetDemo" class="btn-ghost" title="Restablecer datos de fábrica">↺ Reset Demo</button>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal de Vistas -->
+  <main class="main-container">
+
+    <!-- 1. PORTAL PÚBLICO -->
+    <section id="view-portal" class="tab-view active">
+      <div class="hero-banner">
+        <div class="hero-text">
+          <span class="tag-pill">Atención Odontológica de Alta Complejidad</span>
+          <h1>Odontología de Vanguardia, Precisión y Calidez Humana</h1>
+          <p>Combinamos tecnología digital 3D, odontograma clínico en tiempo real y especialistas de primer nivel para transformar tu salud dental.</p>
+          <div class="hero-ctas">
+            <button class="btn-primary" onclick="switchTab('agenda')">Agendar Cita en Línea</button>
+            <a href="#servicios-publicos" class="btn-secondary">Conocer Especialidades</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>+12 Años</strong><span>Trayectoria</span></div>
+            <div><strong>4.9 ★</strong><span>Calificación de Pacientes</span></div>
+            <div><strong>100% Digital</strong><span>Historia Clínica & 3D</span></div>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="assets/hero.png" alt="Instalaciones de la Clínica" class="hero-img">
+        </div>
+      </div>
+
+      <!-- Especialidades / Servicios -->
+      <section id="servicios-publicos" class="section-services">
+        <div class="section-header">
+          <h2>Especialidades Médicas</h2>
+          <p>Protocolos de tratamiento mínimamente invasivos y estética dental avanzada.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🦷</div>
+            <h3>Implantes & Cirugía Guiada</h3>
+            <p>Rehabilitación con titanio biocompatible de carga inmediata y planificación tomográfica.</p>
+            <span class="service-price">Desde $ 180.000 ARS</span>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">✨</div>
+            <h3>Ortodoncia Invisible</h3>
+            <p>Alineadores transparentes de alta precisión sin brackets metálicos.</p>
+            <span class="service-price">Desde $ 220.000 ARS</span>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">💎</div>
+            <h3>Estética Dental & Carillas</h3>
+            <p>Diseño digital de sonrisa, carillas de porcelana y blanqueamiento láser.</p>
+            <span class="service-price">Desde $ 95.000 ARS</span>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔬</div>
+            <h3>Endodoncia Microscópica</h3>
+            <p>Tratamientos de conducto en una sola sesión con instrumentación rotatoria.</p>
+            <span class="service-price">Desde $ 65.000 ARS</span>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛡️</div>
+            <h3>Prevención & Periodoncia</h3>
+            <p>Limpieza ultrasónica, raspado radicular y sellado preventivo de fisuras.</p>
+            <span class="service-price">Desde $ 35.000 ARS</span>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🚨</div>
+            <h3>Guardia & Urgencias 24h</h3>
+            <p>Alivio inmediato de dolor agudo, traumatismos dentofaciales y urgencias.</p>
+            <span class="service-price">Atención Inmediata</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Banner de Tecnología con services.png -->
+      <div class="tech-banner">
+        <img src="assets/services.png" alt="Tecnología Dental" class="tech-img">
+        <div class="tech-content">
+          <h3>Equipamiento de Última Generación</h3>
+          <p>Cada consulta cuenta con cámara intraoral HD y odontograma computarizado para que puedas ver el diagnóstico en pantalla al instante.</p>
+          <button class="btn-primary" onclick="switchTab('odontograma')">Ver Odontograma Interactivo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. AGENDA & TURNOS -->
+    <section id="view-agenda" class="tab-view">
+      <div class="panel-header">
+        <div>
+          <h2>Agenda de Turnos</h2>
+          <p>Gestión de citas, filtros por especialista y confirmaciones automáticas vía WhatsApp.</p>
+        </div>
+        <button class="btn-primary" id="btnNuevoTurno">+ Nuevo Turno</button>
+      </div>
+
+      <!-- Filtros de agenda -->
+      <div class="filters-bar">
+        <div class="filter-group">
+          <label>Profesional:</label>
+          <select id="filterDoctor">
+            <option value="todos">Todos los profesionales</option>
+            <option value="Dra. Trinidad Robledo">Dra. Trinidad Robledo (Implantes)</option>
+            <option value="Dr. Jhon Barrios">Dr. Jhon Barrios (Ortodoncia)</option>
+            <option value="Dra. Norma Ramírez">Dra. Norma Ramírez (Endodoncia)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Estado:</label>
+          <select id="filterEstado">
+            <option value="todos">Todos los estados</option>
+            <option value="Confirmado">Confirmado</option>
+            <option value="En Espera">En Espera</option>
+            <option value="Finalizado">Finalizado</option>
+            <option value="Cancelado">Cancelado</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Fecha:</label>
+          <input type="date" id="filterFecha">
+        </div>
+      </div>
+
+      <!-- Tabla de Turnos -->
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Paciente</th>
+              <th>Profesional</th>
+              <th>Tratamiento</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="turnosTableBody">
+            <!-- Cargado dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. ODONTOGRAMA INTERACTIVO (FDI) -->
+    <section id="view-odontograma" class="tab-view">
+      <div class="panel-header">
+        <div>
+          <h2>Odontograma Clínico FDI (32 Piezas)</h2>
+          <p>Selecciona una pieza y una superficie para registrar diagnósticos, restauraciones y tratamientos.</p>
+        </div>
+        <div class="patient-selector-wrap">
+          <label>Paciente:</label>
+          <select id="odontogramaPatientSelect" class="patient-select">
+            <!-- Pacientes -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Selector de Condición a Aplicar -->
+      <div class="condition-palette">
+        <span class="palette-title">Herramienta Diagnóstica:</span>
+        <button class="cond-btn active" data-cond="sano"><span class="dot dot-sano"></span> Sano / Normal</button>
+        <button class="cond-btn" data-cond="caries"><span class="dot dot-caries"></span> Caries (Rojo)</button>
+        <button class="cond-btn" data-cond="restauracion"><span class="dot dot-restauracion"></span> Restauración / Resina (Azul)</button>
+        <button class="cond-btn" data-cond="corona"><span class="dot dot-corona"></span> Corona / Prótesis (Amarillo)</button>
+        <button class="cond-btn" data-cond="conducto"><span class="dot dot-conducto"></span> Tratamiento de Conducto (Verde)</button>
+        <button class="cond-btn" data-cond="ausente"><span class="dot dot-ausente"></span> Pieza Ausente (Cruz Negra)</button>
+      </div>
+
+      <!-- Tablero del Odontograma -->
+      <div class="odontogram-board">
+        <div class="arch-section">
+          <h3>Arcada Superior (Maxilar)</h3>
+          <div class="teeth-row" id="upperTeeth">
+            <!-- Piezas 18 a 11 y 21 a 28 -->
+          </div>
+        </div>
+
+        <div class="arch-divider">Línea Media & Oclusal</div>
+
+        <div class="arch-section">
+          <h3>Arcada Inferior (Mandíbula)</h3>
+          <div class="teeth-row" id="lowerTeeth">
+            <!-- Piezas 48 a 41 y 31 a 38 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Registro de hallazgos del paciente -->
+      <div class="odontogram-summary">
+        <h3>Diagnósticos Registrados para el Paciente Activo</h3>
+        <div id="odontogramFindingsList" class="findings-list">
+          <!-- Hallazgos en vivo -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PACIENTES & FICHAS CLÍNICAS -->
+    <section id="view-pacientes" class="tab-view">
+      <div class="panel-header">
+        <div>
+          <h2>Gestión de Pacientes</h2>
+          <p>Base de datos de historias clínicas, coberturas, antecedentes y balances.</p>
+        </div>
+        <div class="search-input-wrap">
+          <input type="text" id="searchPatient" placeholder="Buscar por nombre, DNI o teléfono..." class="input-search">
+        </div>
+      </div>
+
+      <div class="patients-grid" id="patientsGrid">
+        <!-- Tarjetas de pacientes -->
+      </div>
+    </section>
+
+    <!-- 5. PRESUPUESTOS & PAGOS -->
+    <section id="view-presupuestos" class="tab-view">
+      <div class="panel-header">
+        <div>
+          <h2>Presupuestos & Cobros</h2>
+          <p>Planes de tratamiento en pesos argentinos (ARS) con cálculo de saldos y emisión de comprobantes.</p>
+        </div>
+        <button class="btn-primary" id="btnNuevoPresupuesto">+ Nuevo Presupuesto</button>
+      </div>
+
+      <!-- Resumen Financiero -->
+      <div class="metrics-row">
+        <div class="metric-card">
+          <span>Facturación Estimada</span>
+          <strong id="metricTotalFacturado">$ 1.840.000</strong>
+        </div>
+        <div class="metric-card">
+          <span>Total Cobrado</span>
+          <strong id="metricTotalCobrado" class="text-success">$ 1.290.000</strong>
+        </div>
+        <div class="metric-card">
+          <span>Saldos Pendientes</span>
+          <strong id="metricTotalPendiente" class="text-warning">$ 550.000</strong>
+        </div>
+      </div>
+
+      <!-- Listado de Presupuestos -->
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Presupuesto #</th>
+              <th>Paciente</th>
+              <th>Tratamiento</th>
+              <th>Monto Total</th>
+              <th>Abonado</th>
+              <th>Saldo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="presupuestosTableBody">
+            <!-- Cargado dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal Nuevo Turno -->
+  <div class="modal-backdrop" id="modalTurno">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Agendar Nuevo Turno</h3>
+        <button class="modal-close" onclick="closeModal('modalTurno')">×</button>
+      </div>
+      <form id="formNuevoTurno">
+        <div class="form-group">
+          <label>Paciente:</label>
+          <select id="turnoPaciente" required></select>
+        </div>
+        <div class="form-group">
+          <label>Profesional:</label>
+          <select id="turnoDoctor" required>
+            <option>Dra. Trinidad Robledo</option>
+            <option>Dr. Jhon Barrios</option>
+            <option>Dra. Norma Ramírez</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Servicio / Práctica:</label>
+          <input type="text" id="turnoServicio" placeholder="Ej: Control Ortodoncia, Limpieza" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha:</label>
+            <input type="date" id="turnoFecha" required>
+          </div>
+          <div class="form-group">
+            <label>Hora:</label>
+            <input type="time" id="turnoHora" value="10:00" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalTurno')">Cancelar</button>
+          <button type="submit" class="btn-primary">Confirmar Turno</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Ficha de Paciente -->
+  <div class="modal-backdrop" id="modalFichaPaciente">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <h3 id="fichaNombre">Ficha Médica del Paciente</h3>
+        <button class="modal-close" onclick="closeModal('modalFichaPaciente')">×</button>
+      </div>
+      <div class="ficha-content" id="fichaBody">
+        <!-- Detalles cargados dinámicamente -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <span>OdontoClinic PRO · Desarrollado y Operado por <strong>IAtomica Factory Swarm</strong></span>
+      <span>Entorno de Producción: <code>https://odontodemo.iatomica.com</code> · Nginx Alpine</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
